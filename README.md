@@ -22,7 +22,7 @@ Anyway, there is no big reason why to use my crate instead of cool and big **X**
 # Cargo.toml
 
 [dependencies]
-envconfgen = "1.0.1"
+envconfgen = "1.0.2"
 ```
 
 ## Example

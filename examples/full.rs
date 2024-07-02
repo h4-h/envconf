@@ -16,8 +16,7 @@ struct Config {
 fn main() {
   let config = Config::new(); // Generated factory method
 
-  // Crate also generates a public getters for fields
-  // I don't think it's a good idea to use public fields for config struct
+  // Generated public getters
   println!("test_var: {}", config.test_var());
   println!("database_url: {}", config.database_url());
 }

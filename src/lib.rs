@@ -2,6 +2,37 @@ use proc_macro::TokenStream;
 use syn::{parse_macro_input, DataStruct, DeriveInput};
 use quote::quote;
 
+/// Derive macro for configuration struct.
+///
+/// Supports only structs with named fields.
+///
+/// ## Provided attributes:
+///
+/// 1. [`var`] - specifies the environment variable name, if not provided - uppercase field name will be used.
+/// 2. [`default`] - specifies default value if variable not presented in the environment.
+///
+/// ## Example of attribute usage:
+///
+/// ```rust
+/// // if not specified - it will try to find `DB_URL`.
+/// #[var("DATABASE_URL")]
+/// // if not specified and can't be found in the environment - it will panic.
+/// #[default("nothing")]
+/// db_url: String,
+/// ```
+///
+/// ## Generated methods:
+///
+/// 1. [`new`] - factory method (there we fetch variables)
+/// 2. [`FIELD_NAME`] - public getter for `FIELD_NAME`
+///
+/// Do not make fields public, it can cause errors when someone accedentally modify them.
+///
+/// ## Full example
+///
+/// ```rust,ignore
+#[doc = include_str!("../examples/full.rs")]
+/// ```
 #[proc_macro_derive(EnvConfig, attributes(var, default))]
 pub fn env_config_derive(input: TokenStream) -> TokenStream {
     let input = parse_macro_input!(input as DeriveInput);
@@ -60,6 +91,14 @@ pub fn env_config_derive(input: TokenStream) -> TokenStream {
     expanded.into()
 }
 
+/// Simple extractor of the field attribute value
+///
+/// Returns [`None`] if field not found or have no value.
+///
+/// Example:
+/// ```rust
+/// let var_value = get_attr_value(field, "var");
+/// ```
 fn get_attr_value(field: &syn::Field, ident: &str) -> Option<String> {
     let idx = field.attrs.iter().position(|f| f.path().is_ident(ident))?;
     let args = field.attrs[idx].parse_args::<syn::Expr>().ok()?;
