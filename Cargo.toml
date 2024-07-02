@@ -1,7 +1,7 @@
 [package]
 name = "envconfgen"
 description = "Config struct generator."
-version = "1.0.0"
+version = "1.0.1"
 repository = "https://github.com/h4-h/envconf"
 readme = "README.md"
 license = "MIT"

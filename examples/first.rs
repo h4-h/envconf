@@ -1,4 +1,4 @@
-#[derive(envconf::EnvConfig)]
+#[derive(envconfgen::EnvConfig)]
 struct Config {
   // `var` specifies the environment variable name to fetch the value from.
   // If not provided, the uppercase field name (`TEST_VAR`) will be used.
