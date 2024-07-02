@@ -1,5 +1,5 @@
 [package]
-name = "envconf"
+name = "envconfgen"
 description = "Config struct generator."
 version = "1.0.0"
 repository = "https://github.com/h4-h/envconf"

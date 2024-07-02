@@ -9,14 +9,14 @@ Crate generates [`impl`](https://doc.rust-lang.org/std/keyword.impl.html) with:
 
 ## Install
 
-1. Using cli `cargo add envconf`
+1. Using cli `cargo add envconfgen`
 2. Manually adding to Cargo.toml
 
 ```
 # Cargo.toml
 
 [dependencies]
-envconf = "1.0.0"
+envconfgen = "1.0.0"
 ```
 
 ## Example
