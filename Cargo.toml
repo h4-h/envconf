@@ -1,0 +1,17 @@
+[package]
+name = "envconf"
+description = "Config struct generator."
+version = "1.0.0"
+repository = "https://github.com/h4-h/envconf"
+readme = "README.md"
+license = "MIT"
+keywords = ["config", "environment"]
+categories = ["config"]
+edition = "2021"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+syn = "2.0.68"
+quote = "1.0.36"
