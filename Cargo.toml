@@ -8,6 +8,9 @@ license = "MIT"
 keywords = ["config", "environment"]
 categories = ["config"]
 edition = "2021"
+exclude = [
+  ".gitignore",
+]
 
 [lib]
 proc-macro = true
