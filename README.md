@@ -7,6 +7,12 @@ Crate generates [`impl`](https://doc.rust-lang.org/std/keyword.impl.html) with:
 1. `new` public method that fetches values from environment
 2. `#field_name` public getters for values
 
+## Why this instead of **X**`-config`?
+
+My crate panics if it can't found variable in environment and `default` is not specified and idk... it contains only 76 LOC.
+
+Anyway, there is no big reason why to use my crate instead of cool and big **X**`-config`.
+
 ## Install
 
 1. Using cli `cargo add envconfgen`
